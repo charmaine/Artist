@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Angular App</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:700,400,100,200,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- // call for stylesheet
+
+    // need to add script calls
+    // under node_modules; but will be moved to js/lib/angular2 after copylibs in gulpfile.js -->
+
+    <script src = "js/lib/angular2/es6-shim.min.js"></script>
+    <script src = "js/lib/angular2/system-polyfills.js"></script>
+    <!-- allows newer javascript and typescript to run in older browsers (polyfills and shims) -->
+    <script src = "js/lib/angular2/angular2-polyfills.js"></script>
+    <script src = "js/lib/angular2/system.src.js"></script>
+    <!-- // module loading library; handles loading of modules (used to organize code into smaller pieces); need to config -->
+    <script src = "js/lib/angular2/Rx.js"></script>
+    <!-- // handles reactive programming; adds things like observables; common for angular -->
+    <script src = "js/lib/angular2/angular2.dev.js"></script>
+    <!-- // load javascript file for generic angular framework -->
+    <!-- // add routing and http services here if needed (need to also add in node_modules) -->
+
+    <!-- //config system -->
+    <script>
+      System.config({
+        packages: {
+          js: {
+            format: 'register', // diff. ways to load modules
+            defaultExtension: 'js' // whenever import module, won't need to add js extension at end
+          }
+        }
+      });
+      System.import('js/boot') // boot.js but js already is default extension
+      // set up promise; if there's an error, it will go to console
+        .then(null, console.error.bind(console));
+    </script>
+
+  </head>
+
+<body>
+  <my-app>Loading...</my-app>
+</body>
+</html>
